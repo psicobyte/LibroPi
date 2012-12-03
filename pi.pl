@@ -16,7 +16,15 @@
 #       along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+# Script simplón para converit una sucesión de dígitos en una descripción textual al estilo de:
+#
+# 1223 -> "un uno y dos doses seguidos de un tres"
+#
+# para escribir el libro "Los diez mil primeros dígitos decimales de Pi"
 
+
+# Archivo que contiene los 10k primeros dígitos de la expansión decimal de PI
+# (Lo bueno habría sido que los generase el mismo script, pero es mucho trabajo para esta tontería...)
 $Archivo='10000pi.txt';
 
 open (ARCHIVO, "<$Archivo") || print "No está";
@@ -27,6 +35,7 @@ while (<ARCHIVO>) {
 }
 close ARCHIVO;
 
+# Sólo hay una aparción de 6 dígitos seguidos, y es de nueves
 $Texto=~ s/999999/los únicos seis dígitos seguidos, que resultan ser nada menos que seis nueves x/g;
 
 # No hay ninguno de cinco, en realidad!
@@ -41,7 +50,7 @@ $Texto=~ s/77777/cinco sietes x/g;
 $Texto=~ s/88888/cinco ochos x/g;
 $Texto=~ s/99999/cinco nueves x/g;
 
-# Reemplazamos por "cuatrro", paraluego buscar y modoficar a mano
+# Reemplazamos por "cuatrro", para luego buscar y modificar a mano
 $Texto=~ s/0000/cuatrro ceros x/g;
 $Texto=~ s/1111/cuatrro unos x/g;
 $Texto=~ s/2222/cuatrro doses x/g;
@@ -86,9 +95,7 @@ $Texto=~ s/7/un siete w/g;
 $Texto=~ s/8/un ocho w/g;
 $Texto=~ s/9/un nueve w/g;
 
-#$Texto=~ s/ x/, /g;
-
-
+# y aquí se descubre por qué reemplazamos con cadenas terminadas en x y w: para poder hacer el split cómodamente:
 @Lista= split / x/, $Texto;
 
 @UnionesPlural= (" seguidos de "," y ",", después "," y, tras ellos, ",", tras estos "," tras los cuales hay "," y, a continuación , ",", ");
@@ -111,7 +118,6 @@ foreach $num (@Lista2){
         $Definitivo.= $num . $UnionesSingular[$Aleat];
 
 }
-
 
 # Imprimimos el resultado
  print $Definitivo;
