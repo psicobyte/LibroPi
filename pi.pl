@@ -16,11 +16,16 @@
 #       along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-# Script simplón para converit una sucesión de dígitos en una descripción textual al estilo de:
+# Script simplón para convertir una sucesión de dígitos en una descripción textual al estilo de:
 #
 # 1223 -> "un uno y dos doses seguidos de un tres"
 #
 # para escribir el libro "Los diez mil primeros dígitos decimales de Pi"
+#
+# El libro puede encontrarse en http://www.bubok.es/libros/220107/Los-diez-mil-primeros-digitos-decimales-de-Pi
+#
+# Más explicaciones en http://www.psicobyte.com/articulo/mi_novela
+
 
 
 # Archivo que contiene los 10k primeros dígitos de la expansión decimal de PI
